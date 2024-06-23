@@ -1,3 +1,6 @@
+/* NO TIPAR MANUAL */
+* utilice UNA HERRAMIENTA COMO quicktype */
+
 * por favor no tipar nada porque se pierde tiempo
 aunque utilice typescript
 * No refactorizar hasta el final
@@ -6,6 +9,7 @@ busca generate typescrpt from json
 example:
 https://quicktype.io/typescript
 
+https://app.quicktype.io/?l=ts
 
 se coloca example: ApiResults en ele name (de la app)
 y se copia un registro json, para que me coloque los tipos.
