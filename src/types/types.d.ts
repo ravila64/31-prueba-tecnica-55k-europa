@@ -1,3 +1,4 @@
+// Array<T> el tipo de parametro lo indicamos nosotros 
 declare global {
   interface Array<T> {
     toSorted(compareFn?: (a: T, b: T) => number): T[];

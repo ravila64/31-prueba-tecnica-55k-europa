@@ -1,11 +1,12 @@
 import { type User } from "../types/types.d"
 
 interface Props{
+  deleteUser : (email:string) => void
   showColors: boolean
   users: User[]
 }
 
-export function UsersList({ showColors, users }: Props) {
+export function UsersList({ deleteUser, showColors, users }: Props) {
   return (
     <table width='100%'>
       <thead>
@@ -24,8 +25,8 @@ export function UsersList({ showColors, users }: Props) {
             const backgroundColor = index % 2 === 0 ? '#79c2d0' : '#bbe4e9'
             const color= showColors ? backgroundColor : 'transparent'
             { /* user.id.value => porque hay keys null*/} 
-            return(
-              <tr key={index} style={{backgroundColor: color}}>
+            return(  
+              <tr key={user.email} style={{backgroundColor: color}}>
                 {/* <td>{index}</td> */}
                 <td>
                   <img src={user.picture.thumbnail} />
@@ -33,7 +34,11 @@ export function UsersList({ showColors, users }: Props) {
                 <td>{user.name.first}</td>
                 <td>{user.name.last}</td>
                 <td>{user.location.country}</td>
-                <td><button>Borrar</button></td> 
+                <td>
+                  <button onClick={()=>{
+                    deleteUser(user.email)
+                  }}>Delete</button>
+                </td> 
               </tr>
             )
           })
