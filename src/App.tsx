@@ -14,12 +14,12 @@ function App() {
   // entre renderizados, pero que al cambiar, no vuelva a renderizar el componente 
   // Implement a feature that allows the user to restore the initial state, 
   // meaning that all deleted rows will be recovered.
+  
   const originalUsers = useRef<User[]>([])
-
   const toggleColors = () => {
     setShowColors(!showColors)
   }
-  const toggleSortByCounrty = () => {
+  const toggleSortByCountry = () => {
     // esto se llama callback prevState=>!prevState
     setSortByCountry(prevState => !prevState)
   }
@@ -57,6 +57,7 @@ function App() {
 
   // validacion ternaria
   const sortedUsers = sortByCountry
+   // estaba [..users].sort((a,b) =>){}
     ? users.toSorted((a, b) => {    // part true. best option
       // ascendent sort
       return a.location.country.localeCompare(b.location.country)
@@ -67,19 +68,13 @@ function App() {
     <div className="App">
       <h1>Prueba técnica 55k</h1>
       <header>
-
-        <button onClick={toggleColors}>
-          Color rows
+        <button onClick={toggleColors}>Color rows </button>
+        <button onClick={toggleSortByCountry}>
+          {sortByCountry ? 'Contry-unSorted' : 'Country-Sorted'}
         </button>
-
-        <button onClick={toggleSortByCounrty}>
-          {sortByCountry ? 'Contry-unSorted' : 'Coutry-Sorted'}
-        </button>
-
         <button onClick={handleReset}>
           Reset state
         </button>
-
       </header>
       <main>
         <UsersList
@@ -88,7 +83,6 @@ function App() {
           users={sortedUsers}
         />
       </main>
-
     </div>
   )
 }

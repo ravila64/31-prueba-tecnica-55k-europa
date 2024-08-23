@@ -1,4 +1,4 @@
-const { parserOptions } = require("eslint-plugin-import/config/react");
+const { parserOptions } = require('eslint-plugin-import/config/react');
 
 module.exports = {
   root: true,
@@ -27,8 +27,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    '@typescript-eslint/explicit-function-return-type':'off',
     'react/react-in-jsx-scope':'off',
+    '@typescript-eslint/explicit-function-return-type':'off',
     '@typescript-eslint/method-signature-style':'off'
   }
 }

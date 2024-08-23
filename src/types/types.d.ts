@@ -1,3 +1,5 @@
+// https://github.com/jsx-eslint
+// https://github.com/jsx-eslint/eslint-plugin-react/#shareable-configs
 // Array<T> el tipo de parametro lo indicamos nosotros 
 declare global {
   interface Array<T> {
