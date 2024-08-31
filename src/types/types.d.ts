@@ -1,6 +1,8 @@
 // https://github.com/jsx-eslint
 // https://github.com/jsx-eslint/eslint-plugin-react/#shareable-configs
 // Array<T> el tipo de parametro lo indicamos nosotros 
+
+// se coloca esta declaracion global para que funcione toSorted del App.tsx
 declare global {
   interface Array<T> {
     toSorted(compareFn?: (a: T, b: T) => number): T[];
