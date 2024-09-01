@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { parserOptions } = require('eslint-plugin-import/config/react')
-
+const { parserOptions } = require('eslint-plugin-import/config/react');
 module.exports = {
   root: true,
   env: { browser: true, es2021: true },
