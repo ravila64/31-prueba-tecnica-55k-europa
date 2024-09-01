@@ -48,25 +48,29 @@ function App() {
       })
   }, [])
 
-  const filteredUsers = typeof filterCountry === 'string' && filterCountry.length > 0
-    ? users.filter(user => {
-      return user.location.country.toLowerCase().includes(filterCountry.toLowerCase())
-    }) : users
+  // tambien puede ser: const filteredUsers=filterCountry !== nul && filterCountry.length > 0
+  const filteredUsers = useMemo(()=>{
+    console.log('calculate filteredUsers');
+    return typeof filterCountry === 'string' && filterCountry.length > 0
+      ? users.filter(user => {
+        return user.location.country.toLowerCase().includes(filterCountry.toLowerCase())
+      }) : users
+  }, [users, filterCountry])
+  
 
   // validacion ternaria
   // estaba [..users].sort((a,b) =>){}
   // se quito users x filteredUsers
   const sortedUsers = useMemo(()=>{
-    console.log('sortedUsers');
+    console.log('calculate sortedUsers');
     return sortByCountry
-      ? users.toSorted(
+      ? filteredUsers.toSorted(
         (a, b) => a.location.country.localeCompare(b.location.country)
-      ) : users
+      ) : filteredUsers
   }, [filteredUsers, sortByCountry])
 
   return (
-    <>
-      <div className="App">
+    <div className="App">
         <h1>Prueba técnica 55k</h1>
         <header>
 
@@ -82,7 +86,7 @@ function App() {
             Reset state
           </button>
 
-          <input onClick='Filtra por pais' onChange={(e) => {
+          <input placeholder='Filtra por pais' onChange={(e) => {
             setFilterCountry(e.target.value)
           }} />
 
@@ -94,9 +98,7 @@ function App() {
             users={sortedUsers} />
         </main>
       </div >
-    </>
   )
-
 }
 
 export default App
