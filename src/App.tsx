@@ -7,7 +7,8 @@ function App() {
   //                                 array de users
   const [users, setUsers] = useState<User[]>([])
   const [showColors, setShowColors] = useState(false)
-  const [sortByCountry, setSortByCountry] = useState(false)
+  //const [sortByCountry, setSortByCountry] = useState(false)
+  const [sorting, setSorting] = useState<SortBy>(Sort.NONE)
   const [filterCountry, setFilterCountry] = useState<string | null>(null)
   const originalUsers = useRef<User[]>([])
 
@@ -21,7 +22,11 @@ function App() {
   const toggleColors = () => {
     setShowColors(!showColors)
   }
-  const toggleSortByCountry = () => {
+  // const toggleSortByCountry = () => {
+  //   // esto se llama callback prevState=>!prevState
+  //   setSortByCountry(prevState => !prevState)
+  // }
+    const toggleSortByCountry = () => {
     // esto se llama callback prevState=>!prevState
     setSortByCountry(prevState => !prevState)
   }
@@ -34,7 +39,7 @@ function App() {
     // userIndex !== index
     const filteredUsers = users.filter((user) => user.email !== email)
     setUsers(filteredUsers)
-  }
+      }
 
   useEffect(() => {
     fetch('https://randomuser.me/api?results=50')
@@ -42,8 +47,8 @@ function App() {
       .then(res => {
         setUsers(res.results)
         originalUsers.current = res.results
-      })
-      .catch(err => {
+       })
+      .catch(err => { 
         console.log(err)
       })
   }, [])

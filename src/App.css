@@ -5,3 +5,17 @@
   text-align: center;
   width: 100%;
 }
+
+/* otra forma de colorear seria - video 31- 1.19 */
+
+/* cambiaria <tbody className={showColors ? 'table--showColors':'table'}> 
+despues va users.map((user)=>{});
+*/
+
+.table--showColors tr:nth-child(2n){
+  background: red;
+}
+
+.table--showColors tr:nth-child(2n+1){
+  background: blue;
+}
