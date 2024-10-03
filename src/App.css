@@ -7,15 +7,36 @@
 }
 
 /* otra forma de colorear seria - video 31- 1.19 */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
 
 /* cambiaria <tbody className={showColors ? 'table--showColors':'table'}> 
 despues va users.map((user)=>{});
 */
 
-.table--showColors tr:nth-child(2n){
-  background: red;
+header {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 48px;
+  justify-content: center;
+  align-items: center;
 }
 
-.table--showColors tr:nth-child(2n+1){
-  background: blue;
+/* en vez de 2n uiliza odd*/
+.table--showColors tr:nth-child(odd) {
+  background: #79c2d0;
+  /*#333 */
+}
+
+/* en vez de 2n+1 uiliza even*/
+.table--showColors tr:nth-child(even) {
+  background: #bbe4e9;
+  /* #555*/
+}
+
+.pointer {
+  /* cursor: crosshair; */
+  cursor: pointer;
 }

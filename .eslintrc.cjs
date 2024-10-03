@@ -29,6 +29,7 @@ module.exports = {
     ],
     'react/react-in-jsx-scope':'off',
     '@typescript-eslint/explicit-function-return-type':'off',
-    '@typescript-eslint/method-signature-style':'off'
+    '@typescript-eslint/method-signature-style':'off',
+    'eslint-disable-next-line react/react-in-jsx-scope':'off'
   }
 }
